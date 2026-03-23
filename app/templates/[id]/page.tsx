@@ -146,7 +146,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
       <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           {/* Breadcrumb */}
-          <nav className="mb-6 flex items-center gap-2 text-sm text-dcyfr-primary-400" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-sm text-dcyfr-primary-300" aria-label="Breadcrumb">
             <a href="/" className="hover:text-white transition-colors">
               dcyfr.app
             </a>
@@ -168,7 +168,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                   <span className={clsx('rounded-full border px-2.5 py-0.5 text-xs font-medium', maturityClasses[template.maturity])}>
                     {template.maturity}
                   </span>
-                  <span className="text-xs text-dcyfr-primary-400">v{template.version}</span>
+                  <span className="text-xs text-dcyfr-primary-300">v{template.version}</span>
                 </div>
                 <h1 className="mb-3 text-3xl font-bold text-white">{template.name}</h1>
                 <p className="text-dcyfr-primary-300 leading-relaxed">{template.description}</p>

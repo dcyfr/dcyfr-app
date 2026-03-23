@@ -52,7 +52,7 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
                 'border-b-2 px-3 py-2.5 text-xs font-medium transition-colors',
                 activeFile === file.name
                   ? 'border-dcyfr-accent text-white'
-                  : 'border-transparent text-dcyfr-primary-400 hover:text-dcyfr-primary-200'
+                  : 'border-transparent text-dcyfr-primary-300 hover:text-white'
               )}
             >
               {file.name}
@@ -67,7 +67,7 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
             'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors',
             copied
               ? 'text-green-400'
-              : 'text-dcyfr-primary-400 hover:text-dcyfr-primary-200'
+              : 'text-dcyfr-primary-300 hover:text-white'
           )}
         >
           {copied ? (

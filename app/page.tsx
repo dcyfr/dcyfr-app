@@ -226,10 +226,10 @@ export default function HomePage() {
               <span className="font-bold text-white">
                 dcyfr<span className="text-dcyfr-accent">.app</span>
               </span>
-              <span className="text-dcyfr-primary-500">·</span>
-              <span className="text-dcyfr-primary-400">Starter template showcase</span>
+              <span className="text-dcyfr-primary-300">·</span>
+              <span className="text-dcyfr-primary-300">Starter template showcase</span>
             </div>
-            <nav className="flex gap-4 text-dcyfr-primary-400" aria-label="Footer navigation">
+            <nav className="flex gap-4 text-dcyfr-primary-300" aria-label="Footer navigation">
               <a href="https://dcyfr.io" className="hover:text-white transition-colors">
                 dcyfr.io
               </a>

@@ -55,7 +55,7 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-dcyfr-primary-400">No templates match your filters.</p>
+          <p className="text-dcyfr-primary-300">No templates match your filters.</p>
           <button
             type="button"
             onClick={() =>
