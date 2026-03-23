@@ -122,7 +122,7 @@ export default function HomePage() {
         </section>
 
         {/* Stats bar */}
-        <div className="border-b border-dcyfr-primary-800/40 bg-dcyfr-primary-900/40">
+        <div className="border-b border-dcyfr-primary-800/40 bg-dcyfr-primary-900/40 overflow-x-hidden">
           <div className="mx-auto flex max-w-7xl divide-x divide-dcyfr-primary-800/60 px-4 sm:px-6 lg:px-8">
             {[
               { value: '8', label: 'Templates' },
@@ -130,7 +130,7 @@ export default function HomePage() {
               { value: '@dcyfr/ai', label: 'Powered by' },
               { value: 'MIT', label: 'License' },
             ].map(({ value, label }) => (
-              <div key={label} className="flex-1 px-6 py-4 text-center">
+              <div key={label} className="flex-1 min-w-0 px-3 py-4 sm:px-6 text-center">
                 <p className="text-lg font-bold text-white">{value}</p>
                 <p className="text-xs text-dcyfr-primary-300">{label}</p>
               </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
           {/* Integration Matrix */}
           <section
             id="matrix"
-            className="border-t border-dcyfr-primary-800/40 px-4 py-12 sm:px-6 lg:px-8"
+            className="border-t border-dcyfr-primary-800/40 px-4 py-12 sm:px-6 lg:px-8 overflow-x-hidden"
             aria-labelledby="matrix-heading"
           >
             <div className="mx-auto max-w-7xl">
