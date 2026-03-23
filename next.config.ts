@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
 
 export default withSentryConfig(nextConfig, {
   // Sentry organization + project (set via env or replace here)
-  org: process.env.SENTRY_ORG ?? 'dcyfr',
+  org: process.env.SENTRY_ORG ?? 'dcyfr-labs',
   project: process.env.SENTRY_PROJECT ?? 'dcyfr-app',
 
   // Suppress Sentry CLI output during builds
