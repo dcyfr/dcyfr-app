@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: theme('colors.dcyfr.primary.950');
+  color: theme('colors.white');
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid theme('colors.dcyfr.accent.DEFAULT');
+  outline-offset: 2px;
+}

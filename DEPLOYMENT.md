@@ -1,0 +1,75 @@
+<!-- TLP:AMBER -->
+# dcyfr.app Deployment Runbook
+
+## Overview
+
+| Setting   | Value                                                               |
+| --------- | ------------------------------------------------------------------- |
+| Domain    | dcyfr.app                                                           |
+| Hosting   | Vercel (SSG + Edge)                                                 |
+| DNS       | Vercel-managed (Project → Settings → Domains)                       |
+| SSL       | Vercel auto-managed (Let's Encrypt, auto-renewed)                   |
+| WAF       | Vercel Web Application Firewall (enable in project settings)        |
+| Analytics | Vercel Analytics + Speed Insights (enable in project settings)      |
+| Errors    | Sentry project: `dcyfr-app`                                         |
+| Repo      | `dcyfr/dcyfr-app`                                                   |
+
+## Branch → Environment Mapping
+
+| Branch           | Environment | URL                                      |
+| ---------------- | ----------- | ---------------------------------------- |
+| `main`           | Production  | <https://dcyfr.app>                      |
+| Any other branch | Preview     | `https://dcyfr-app-<hash>.vercel.app`    |
+
+Vercel auto-deploys on push. Production is gated to `main`.
+
+## Required Environment Variables
+
+Set in **Project Settings → Environment Variables**:
+
+| Variable                    | Environments          | Description                      |
+| --------------------------- | --------------------- | -------------------------------- |
+| `NEXT_PUBLIC_SENTRY_DSN`    | All                   | Sentry DSN for `dcyfr-app`       |
+| `SENTRY_DSN`                | Production, Preview   | Server-side Sentry DSN           |
+| `SENTRY_ORG`                | Production            | Sentry org slug (`dcyfr`)        |
+| `SENTRY_PROJECT`            | Production            | Sentry project (`dcyfr-app`)     |
+| `SENTRY_AUTH_TOKEN`         | Production            | Source map upload at build time  |
+
+## Manual Deploy
+
+```bash
+npm i -g vercel   # install CLI once
+
+vercel            # deploy preview
+vercel --prod     # deploy production
+```
+
+## Rollback
+
+```bash
+vercel ls dcyfr-app
+vercel promote <deployment-url> --prod
+```
+
+## Cache Invalidation
+
+```bash
+vercel --prod --force
+```
+
+Or via dashboard: **Deployments → Redeploy → Use existing build cache: off**
+
+## Domain Management
+
+All DNS/SSL is configured in the Vercel dashboard:
+
+1. **Vercel Dashboard** → `dcyfr-app` project → **Settings** → **Domains**
+2. Add `dcyfr.app` — Vercel provides the CNAME/A record for your registrar
+3. SSL auto-issues within ~60 seconds of DNS propagation
+
+## Post-Deploy Checklist
+
+- [ ] `curl -I https://dcyfr.app` → 200 OK
+- [ ] Sentry: no new errors in last 5 min
+- [ ] Vercel Analytics: traffic flowing
+- [ ] Template detail page loads: `https://dcyfr.app/templates/dcyfr-ai-web`
