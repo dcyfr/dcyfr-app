@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { TemplateGrid } from '@/components/TemplateGrid';
 import { IntegrationMatrix } from '@/components/IntegrationMatrix';
 import templates from '@/data/templates.json';
 import type { Template } from '@/lib/types';
+import { DcyfrButton } from '@/components/ui/dcyfr-button';
+import { DcyfrBadge } from '@/components/ui/dcyfr-badge';
 
 export const metadata: Metadata = {
   title: 'DCYFR Templates — Production-Ready Starter Templates',
@@ -72,20 +75,18 @@ export default function HomePage() {
               ships with TypeScript, @dcyfr/ai integration, and the tooling you actually need.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="#templates"
-                className="rounded-lg bg-dcyfr-accent-700 px-6 py-3 text-sm font-semibold text-white transition-opacity hover:bg-dcyfr-accent-600 focus-visible:outline-2 focus-visible:outline-dcyfr-accent"
-              >
-                Browse Templates
-              </a>
-              <a
-                href="https://github.com/dcyfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg border border-dcyfr-primary-600/60 px-6 py-3 text-sm font-semibold text-dcyfr-primary-200 transition-colors hover:border-dcyfr-accent/40 hover:text-white"
-              >
-                View on GitHub
-              </a>
+              <DcyfrButton asChild variant="brand" size="lg">
+                <Link href="#templates">Browse Templates</Link>
+              </DcyfrButton>
+              <DcyfrButton asChild variant="ghostly" size="lg">
+                <a
+                  href="https://github.com/dcyfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub
+                </a>
+              </DcyfrButton>
             </div>
           </div>
         </section>
@@ -99,9 +100,18 @@ export default function HomePage() {
               { value: '@dcyfr/ai', label: 'Powered by' },
               { value: 'MIT', label: 'License' },
             ].map(({ value, label }) => (
-              <div key={label} className="flex-1 min-w-0 px-3 py-4 sm:px-6 text-center">
+              <div
+                key={label}
+                className="flex-1 min-w-0 px-3 py-4 sm:px-6 text-center"
+              >
                 <p className="text-lg font-bold text-white">{value}</p>
-                <p className="text-xs text-dcyfr-primary-300">{label}</p>
+                <DcyfrBadge
+                  variant="info"
+                  size="sm"
+                  className="mt-0.5 border-0 bg-transparent text-dcyfr-primary-300"
+                >
+                  {label}
+                </DcyfrBadge>
               </div>
             ))}
           </div>
@@ -173,14 +183,20 @@ export default function HomePage() {
                         <p className="font-medium text-white">{t.name}</p>
                         <p className="text-xs text-dcyfr-primary-300">{t.stack.join(' · ')}</p>
                       </div>
-                      <a
-                        href={t.vercelDeployUrl!}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-md bg-black px-3 py-1.5 text-xs font-medium text-white hover:bg-dcyfr-primary-800 transition-colors border border-dcyfr-primary-700/60"
+                      <DcyfrButton
+                        asChild
+                        variant="ghostly"
+                        size="sm"
+                        className="border border-dcyfr-primary-700/60 bg-black text-white hover:bg-dcyfr-primary-800"
                       >
-                        ▲ Deploy
-                      </a>
+                        <a
+                          href={t.vercelDeployUrl!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          ▲ Deploy
+                        </a>
+                      </DcyfrButton>
                     </div>
                   ))}
               </div>
