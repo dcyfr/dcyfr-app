@@ -46,8 +46,12 @@ export function TemplateCard({ template }: TemplateCardProps) {
       padding="lg"
       className={clsx(
         'group relative flex flex-col border-input/60 bg-card/80',
-        'transition-all duration-200',
-        'hover:-translate-y-0.5 hover:shadow-xl hover:shadow-dcyfr-accent/10 hover:border-dcyfr-accent/40'
+        'transition-all duration-200 ease-out',
+        // Scout-proposal: stronger hover-lift + semantic shadow/border.
+        // Prior code referenced `dcyfr-accent` without a shade — a legacy
+        // palette token that resolves to nothing in the semantic-var bridge,
+        // producing silent styling no-ops. Swapped to the accent semantic.
+        'hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 hover:border-accent/40'
       )}
     >
       <DcyfrCardHeader className="px-0">
@@ -55,11 +59,13 @@ export function TemplateCard({ template }: TemplateCardProps) {
           <DcyfrBadge variant={maturityVariant} size="sm" className="capitalize">
             {template.maturity}
           </DcyfrBadge>
-          <span className="text-xs text-muted-foreground">
+          {/* Scout-proposal: monospace for metadata labels reinforces the
+              product-store-meets-Linear aesthetic. */}
+          <span className="font-mono text-xs text-muted-foreground">
             {template.framework}
           </span>
         </div>
-        <h2 className="mt-3 text-lg font-semibold text-white transition-colors group-hover:text-accent/70">
+        <h2 className="mt-3 text-lg font-semibold text-foreground transition-colors group-hover:text-accent">
           {template.name}
         </h2>
       </DcyfrCardHeader>
