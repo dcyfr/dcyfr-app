@@ -56,7 +56,7 @@ export function TemplateGrid({ templates }: TemplateGridProps) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-dcyfr-primary-300">No templates match your filters.</p>
+          <p className="text-muted-foreground">No templates match your filters.</p>
           <DcyfrButton
             variant="ghostly"
             size="sm"

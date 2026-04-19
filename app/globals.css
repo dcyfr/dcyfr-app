@@ -88,8 +88,8 @@
 @layer base {
   body {
     font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, sans-serif);
-    background-color: theme('colors.dcyfr.primary.950');
-    color: theme('colors.white');
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
   html {
@@ -97,7 +97,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid theme('colors.dcyfr.accent.DEFAULT');
+    outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
 

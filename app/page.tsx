@@ -56,7 +56,7 @@ export default function HomePage() {
       <div>
         {/* Hero */}
         <section
-          className="border-b border-dcyfr-primary-800/40 bg-gradient-to-b from-dcyfr-primary-950 to-dcyfr-primary-900/60 px-4 py-16 sm:px-6 lg:px-8"
+          className="border-b border-border/40 bg-gradient-to-b from-background to-card/60 px-4 py-16 sm:px-6 lg:px-8"
           aria-labelledby="hero-heading"
         >
           <div className="mx-auto max-w-3xl text-center">
@@ -70,7 +70,7 @@ export default function HomePage() {
               Build faster with{' '}
               <span className="text-dcyfr-accent">production-ready</span> templates
             </h1>
-            <p className="mb-8 text-lg text-dcyfr-primary-300 leading-relaxed">
+            <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
               8 battle-tested starter templates for AI-powered applications. Every template
               ships with TypeScript, @dcyfr/ai integration, and the tooling you actually need.
             </p>
@@ -92,8 +92,8 @@ export default function HomePage() {
         </section>
 
         {/* Stats bar */}
-        <div className="border-b border-dcyfr-primary-800/40 bg-dcyfr-primary-900/40 overflow-x-hidden">
-          <div className="mx-auto flex max-w-7xl divide-x divide-dcyfr-primary-800/60 px-4 sm:px-6 lg:px-8">
+        <div className="border-b border-border/40 bg-card/40 overflow-x-hidden">
+          <div className="mx-auto flex max-w-7xl divide-x divide-border/60 px-4 sm:px-6 lg:px-8">
             {[
               { value: '8', label: 'Templates' },
               { value: '100%', label: 'TypeScript' },
@@ -108,7 +108,7 @@ export default function HomePage() {
                 <DcyfrBadge
                   variant="info"
                   size="sm"
-                  className="mt-0.5 border-0 bg-transparent text-dcyfr-primary-300"
+                  className="mt-0.5 border-0 bg-transparent text-muted-foreground"
                 >
                   {label}
                 </DcyfrBadge>
@@ -138,7 +138,7 @@ export default function HomePage() {
           {/* Integration Matrix */}
           <section
             id="matrix"
-            className="border-t border-dcyfr-primary-800/40 px-4 py-12 sm:px-6 lg:px-8 overflow-x-hidden"
+            className="border-t border-border/40 px-4 py-12 sm:px-6 lg:px-8 overflow-x-hidden"
             aria-labelledby="matrix-heading"
           >
             <div className="mx-auto max-w-7xl">
@@ -148,7 +148,7 @@ export default function HomePage() {
               >
                 Feature Comparison
               </h2>
-              <p className="mb-8 text-dcyfr-primary-300">
+              <p className="mb-8 text-muted-foreground">
                 Compare what&apos;s included in each template at a glance.
               </p>
               <IntegrationMatrix templates={typedTemplates} />
@@ -157,7 +157,7 @@ export default function HomePage() {
 
           {/* Deployment CTA */}
           <section
-            className="border-t border-dcyfr-primary-800/40 bg-dcyfr-primary-900/40 px-4 py-12 sm:px-6 lg:px-8"
+            className="border-t border-border/40 bg-card/40 px-4 py-12 sm:px-6 lg:px-8"
             aria-labelledby="deploy-heading"
           >
             <div className="mx-auto max-w-7xl">
@@ -167,7 +167,7 @@ export default function HomePage() {
               >
                 Deploy in seconds
               </h2>
-              <p className="mb-6 text-dcyfr-primary-300">
+              <p className="mb-6 text-muted-foreground">
                 Every template is pre-wired for one-click Vercel deployment.
               </p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -177,17 +177,17 @@ export default function HomePage() {
                   .map((t) => (
                     <div
                       key={t.id}
-                      className="flex items-center justify-between rounded-lg border border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 p-4"
+                      className="flex items-center justify-between rounded-lg border border-input/60 bg-card/60 p-4"
                     >
                       <div>
                         <p className="font-medium text-white">{t.name}</p>
-                        <p className="text-xs text-dcyfr-primary-300">{t.stack.join(' · ')}</p>
+                        <p className="text-xs text-muted-foreground">{t.stack.join(' · ')}</p>
                       </div>
                       <DcyfrButton
                         asChild
                         variant="ghostly"
                         size="sm"
-                        className="border border-dcyfr-primary-700/60 bg-black text-white hover:bg-dcyfr-primary-800"
+                        className="border border-input/60 bg-black text-white hover:bg-muted"
                       >
                         <a
                           href={t.vercelDeployUrl!}

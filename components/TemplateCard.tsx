@@ -45,7 +45,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
       variant="elevated"
       padding="lg"
       className={clsx(
-        'group relative flex flex-col border-dcyfr-primary-700/60 bg-dcyfr-primary-900/80',
+        'group relative flex flex-col border-input/60 bg-card/80',
         'transition-all duration-200',
         'hover:-translate-y-0.5 hover:shadow-xl hover:shadow-dcyfr-accent/10 hover:border-dcyfr-accent/40'
       )}
@@ -55,17 +55,17 @@ export function TemplateCard({ template }: TemplateCardProps) {
           <DcyfrBadge variant={maturityVariant} size="sm" className="capitalize">
             {template.maturity}
           </DcyfrBadge>
-          <span className="text-xs text-dcyfr-primary-300">
+          <span className="text-xs text-muted-foreground">
             {template.framework}
           </span>
         </div>
-        <h2 className="mt-3 text-lg font-semibold text-white transition-colors group-hover:text-dcyfr-accent-200">
+        <h2 className="mt-3 text-lg font-semibold text-white transition-colors group-hover:text-accent/70">
           {template.name}
         </h2>
       </DcyfrCardHeader>
 
       <DcyfrCardContent className="flex flex-1 flex-col gap-4 px-0">
-        <p className="text-sm leading-relaxed text-dcyfr-primary-300">
+        <p className="text-sm leading-relaxed text-muted-foreground">
           {template.description}
         </p>
 
@@ -76,7 +76,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
               key={tag}
               variant="outline"
               size="sm"
-              className="border-dcyfr-primary-600/40 bg-dcyfr-primary-800/40 text-dcyfr-primary-200"
+              className="border-input/40 bg-muted/40 text-muted-foreground"
             >
               {tag}
             </DcyfrBadge>
@@ -84,7 +84,7 @@ export function TemplateCard({ template }: TemplateCardProps) {
         </div>
 
         {/* Feature icons — non-primitive affordance, preserved */}
-        <div className="flex gap-3 text-xs text-dcyfr-primary-300">
+        <div className="flex gap-3 text-xs text-muted-foreground">
           {template.features.typescript && (
             <span title="TypeScript">
               <span className="text-blue-400">TS</span>

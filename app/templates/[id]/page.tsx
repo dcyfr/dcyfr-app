@@ -117,7 +117,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
   const codeFiles = getCodeFiles(template);
   const cloneUrl = `https://github.com/${template.githubRepo}`;
   const maturityClasses: Record<string, string> = {
-    stable:       'border-dcyfr-accent/30 bg-dcyfr-accent/20 text-dcyfr-accent-200',
+    stable:       'border-dcyfr-accent/30 bg-dcyfr-accent/20 text-accent/70',
     beta:         'border-yellow-500/30 bg-yellow-500/20 text-yellow-300',
     experimental: 'border-purple-500/30 bg-purple-500/20 text-purple-300',
   };
@@ -146,7 +146,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
       <div className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           {/* Breadcrumb */}
-          <nav className="mb-6 flex items-center gap-2 text-sm text-dcyfr-primary-300" aria-label="Breadcrumb">
+          <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground" aria-label="Breadcrumb">
             <a href="/" className="hover:text-white transition-colors">
               dcyfr.app
             </a>
@@ -155,7 +155,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
               Templates
             </a>
             <span aria-hidden="true">/</span>
-            <span className="text-dcyfr-primary-200" aria-current="page">
+            <span className="text-muted-foreground" aria-current="page">
               {template.name}
             </span>
           </nav>
@@ -168,10 +168,10 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                   <span className={clsx('rounded-full border px-2.5 py-0.5 text-xs font-medium', maturityClasses[template.maturity])}>
                     {template.maturity}
                   </span>
-                  <span className="text-xs text-dcyfr-primary-300">v{template.version}</span>
+                  <span className="text-xs text-muted-foreground">v{template.version}</span>
                 </div>
                 <h1 className="mb-3 text-3xl font-bold text-white">{template.name}</h1>
-                <p className="text-dcyfr-primary-300 leading-relaxed">{template.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{template.description}</p>
               </div>
 
               {/* Code preview */}
@@ -183,14 +183,14 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
               {/* Environment setup */}
               <div>
                 <h2 className="mb-4 text-lg font-semibold text-white">Setup</h2>
-                <div className="rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 p-5 space-y-3">
+                <div className="rounded-xl border border-input/60 bg-card/60 p-5 space-y-3">
                   <div className="flex items-start gap-3">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-dcyfr-accent/20 text-xs font-bold text-dcyfr-accent">
                       1
                     </span>
                     <div>
                       <p className="text-sm font-medium text-white">Clone the template</p>
-                      <code className="mt-1 block rounded bg-dcyfr-primary-950 px-3 py-1.5 text-xs text-dcyfr-accent-200 font-mono">
+                      <code className="mt-1 block rounded bg-background px-3 py-1.5 text-xs text-accent/70 font-mono">
                         npx create-dcyfr-app my-app --template {template.id}
                       </code>
                     </div>
@@ -201,7 +201,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                     </span>
                     <div>
                       <p className="text-sm font-medium text-white">Install dependencies</p>
-                      <code className="mt-1 block rounded bg-dcyfr-primary-950 px-3 py-1.5 text-xs text-dcyfr-accent-200 font-mono">
+                      <code className="mt-1 block rounded bg-background px-3 py-1.5 text-xs text-accent/70 font-mono">
                         cd my-app && npm install
                       </code>
                     </div>
@@ -212,7 +212,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                     </span>
                     <div>
                       <p className="text-sm font-medium text-white">Configure environment</p>
-                      <code className="mt-1 block rounded bg-dcyfr-primary-950 px-3 py-1.5 text-xs text-dcyfr-accent-200 font-mono">
+                      <code className="mt-1 block rounded bg-background px-3 py-1.5 text-xs text-accent/70 font-mono">
                         cp .env.example .env.local
                       </code>
                     </div>
@@ -223,7 +223,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                     </span>
                     <div>
                       <p className="text-sm font-medium text-white">Start developing</p>
-                      <code className="mt-1 block rounded bg-dcyfr-primary-950 px-3 py-1.5 text-xs text-dcyfr-accent-200 font-mono">
+                      <code className="mt-1 block rounded bg-background px-3 py-1.5 text-xs text-accent/70 font-mono">
                         npm run dev
                       </code>
                     </div>
@@ -235,14 +235,14 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
             {/* Sidebar */}
             <aside className="space-y-5">
               {/* Clone CTA */}
-              <div className="rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 p-5">
+              <div className="rounded-xl border border-input/60 bg-card/60 p-5">
                 <h2 className="mb-4 font-semibold text-white">Get Started</h2>
                 <div className="space-y-2.5">
                   <a
                     href={cloneUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-dcyfr-accent-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-dcyfr-accent-600"
+                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary"
                   >
                     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -254,7 +254,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                       href={template.vercelDeployUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center gap-2 rounded-lg border border-dcyfr-primary-600/60 px-4 py-2.5 text-sm font-medium text-dcyfr-primary-200 transition-colors hover:border-dcyfr-accent/40 hover:text-white"
+                      className="flex w-full items-center justify-center gap-2 rounded-lg border border-input/60 px-4 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-dcyfr-accent/40 hover:text-white"
                     >
                       ▲ Deploy to Vercel
                     </a>
@@ -263,13 +263,13 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
               </div>
 
               {/* Stack info */}
-              <div className="rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 p-5">
+              <div className="rounded-xl border border-input/60 bg-card/60 p-5">
                 <h2 className="mb-3 font-semibold text-white">Stack</h2>
                 <div className="flex flex-wrap gap-1.5">
                   {template.stack.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-dcyfr-primary-600/40 bg-dcyfr-primary-800/60 px-2.5 py-0.5 text-xs font-medium text-dcyfr-primary-200"
+                      className="rounded-full border border-input/40 bg-muted/60 px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
                     >
                       {tag}
                     </span>
@@ -278,7 +278,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
               </div>
 
               {/* Features */}
-              <div className="rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 p-5">
+              <div className="rounded-xl border border-input/60 bg-card/60 p-5">
                 <h2 className="mb-3 font-semibold text-white">Included</h2>
                 <ul className="space-y-2 text-sm">
                   {[
@@ -294,7 +294,7 @@ export default async function TemplatePage({ params }: Readonly<Props>) {
                       key={label}
                       className={clsx(
                         'flex items-center gap-2',
-                        flag ? 'text-dcyfr-primary-200' : 'text-dcyfr-primary-600 line-through'
+                        flag ? 'text-muted-foreground' : 'text-muted-foreground line-through'
                       )}
                     >
                       <span aria-hidden="true">{flag ? '✓' : '—'}</span>

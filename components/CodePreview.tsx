@@ -38,9 +38,9 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
   if (!current) return null;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-950">
+    <div className="overflow-hidden rounded-xl border border-input/60 bg-background">
       {/* Tab bar */}
-      <div className="flex items-center justify-between border-b border-dcyfr-primary-700/60 bg-dcyfr-primary-900/60 px-4">
+      <div className="flex items-center justify-between border-b border-input/60 bg-card/60 px-4">
         <div className="flex gap-1" role="tablist" aria-label="Code files">
           {files.map((file) => (
             <button
@@ -52,7 +52,7 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
                 'border-b-2 px-3 py-2.5 text-xs font-medium transition-colors',
                 activeFile === file.name
                   ? 'border-dcyfr-accent text-white'
-                  : 'border-transparent text-dcyfr-primary-300 hover:text-white'
+                  : 'border-transparent text-muted-foreground hover:text-white'
               )}
             >
               {file.name}
@@ -67,7 +67,7 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
             'flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors',
             copied
               ? 'text-green-400'
-              : 'text-dcyfr-primary-300 hover:text-white'
+              : 'text-muted-foreground hover:text-white'
           )}
         >
           {copied ? (
@@ -93,7 +93,7 @@ export function CodePreview({ files, defaultFile }: CodePreviewProps) {
         role="tabpanel"
         className="overflow-x-auto p-4"
       >
-        <pre className="text-xs leading-relaxed text-dcyfr-primary-200 font-mono whitespace-pre">
+        <pre className="text-xs leading-relaxed text-muted-foreground font-mono whitespace-pre">
           <code>{current.content}</code>
         </pre>
       </div>
